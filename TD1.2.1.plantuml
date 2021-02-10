@@ -1,1 +1,44 @@
+@startuml
 
+class Examens
+{
+  
+}
+
+class Enseignant
+{
+  nom
+  prenom
+}
+
+class etudiants
+{
+  numEtu
+  nom
+  prenom
+  date_de_naissance
+}
+
+class cours
+{
+  code
+  titre
+}
+
+etudiants "1" --- "1" Examens
+(etudiants, Examens) . notes
+
+etudiants "1.*" --- "1.*" cours
+
+cours "1.*" --- "1" Enseignant : enseigner
+
+'----------------------------------
+
+
+class Ordinateur_Portables
+
+class clavier
+
+Ordinateurs_Portables "0..1" --- "1" etudiants
+
+@enduml
