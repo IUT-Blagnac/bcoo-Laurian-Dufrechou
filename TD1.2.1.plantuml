@@ -13,7 +13,7 @@ class Enseignant
   prenom
 }
 
-class etudiant
+class etudiant as "Etudiant"
 {
   idnumEtu
   nom
@@ -21,7 +21,7 @@ class etudiant
   date_de_naissance
 }
 
-class cour
+class cour as "Cour"
 {
   code
   titre
@@ -30,15 +30,48 @@ class cour
 etudiant "1.*" --- "0.*" Examen
 (etudiant, Examen) . note
 
-etudiant "1.*" --- "1.*" cour : suivre
+etudiant "1.*" --- "0.*" cour : suivre
 
-Examen "1" --- "1" cour : conserner
+Examen --- "1" cour : conserner
 
-cour "1.*" --- "1" Enseignant : enseigner
+cour "*" --- "1" Enseignant : enseigner
 
 class note
 {
   valeur
 }
+
+'----------------------------------
+
+
+class Ordinateur_Portable
+{
+  prix
+  valeur_actuelle
+}
+
+class clavier as "Clavier"
+{
+  TypeClavier type
+}
+
+class Type
+{
+}
+
+Azerty --|> Type
+Qwerty --|> Type
+
+class touche as "Touche"
+
+class propriétaire as "Proprietaire"
+
+Ordinateur_Portable "0..1" --- "1" propriétaire : appartenir
+
+Ordinateur_Portable " " --- "1" clavier : possède
+
+clavier "1" --- "*" touche
+
+clavier " " -- "1" Type
 
 @enduml
