@@ -1,8 +1,10 @@
+
 @startuml
 
 class Examens
 {
-  
+  date
+  coefficient
 }
 
 class Enseignant
@@ -28,7 +30,9 @@ class cours
 etudiants "1" --- "1" Examens
 (etudiants, Examens) . notes
 
-etudiants "1.*" --- "1.*" cours
+etudiants "1.*" --- "1.*" cours : suivre
+
+Examens "1" --- "1" cours : conserner
 
 cours "1.*" --- "1" Enseignant : enseigner
 
