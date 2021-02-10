@@ -1,7 +1,7 @@
 
 @startuml
 
-class Examens
+class Examen
 {
   date
   coefficient
@@ -13,7 +13,7 @@ class Enseignant
   prenom
 }
 
-class etudiants
+class etudiant
 {
   numEtu
   nom
@@ -21,28 +21,33 @@ class etudiants
   date_de_naissance
 }
 
-class cours
+class cour
 {
   code
   titre
 }
 
-etudiants "1" --- "1" Examens
-(etudiants, Examens) . notes
+etudiant "1" --- "1" Examen
+(etudiant, Examen) . notes
 
-etudiants "1.*" --- "1.*" cours : suivre
+etudiant "1.*" --- "1.*" cour : suivre
 
-Examens "1" --- "1" cours : conserner
+Examen "1" --- "1" cour : conserner
 
-cours "1.*" --- "1" Enseignant : enseigner
+cour "1.*" --- "1" Enseignant : enseigner
+
+class note
+{
+  valeur
+}
 
 '----------------------------------
 
 
-class Ordinateur_Portables
+class Ordinateur_Portable
 
 class clavier
 
-Ordinateurs_Portables "0..1" --- "1" etudiants
+Ordinateurs_Portable "0..1" --- "1" etudiant
 
 @enduml
