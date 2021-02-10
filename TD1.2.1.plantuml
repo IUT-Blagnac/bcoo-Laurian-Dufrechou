@@ -15,7 +15,7 @@ class Enseignant
 
 class etudiant
 {
-  numEtu
+  idnumEtu
   nom
   prenom
   date_de_naissance
@@ -27,8 +27,8 @@ class cour
   titre
 }
 
-etudiant "1" --- "1" Examen
-(etudiant, Examen) . notes
+etudiant "1.*" --- "0.*" Examen
+(etudiant, Examen) . note
 
 etudiant "1.*" --- "1.*" cour : suivre
 
