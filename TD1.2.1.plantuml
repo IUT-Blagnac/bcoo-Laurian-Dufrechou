@@ -41,37 +41,4 @@ class note
   valeur
 }
 
-'----------------------------------
-
-
-class Ordinateur_Portable
-{
-  prix
-  valeur_actuelle
-}
-
-class clavier as "Clavier"
-{
-  TypeClavier type
-}
-
-class Type
-{
-}
-
-Azerty --|> Type
-Qwerty --|> Type
-
-class touche as "Touche"
-
-class propriétaire as "Proprietaire"
-
-Ordinateur_Portable "0..1" --- "1" propriétaire : appartenir
-
-Ordinateur_Portable " " --- "1" clavier : possède
-
-clavier "1" --- "*" touche
-
-clavier " " -- "1" Type
-
 @enduml
