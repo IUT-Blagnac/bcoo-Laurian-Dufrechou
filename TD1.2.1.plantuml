@@ -41,13 +41,4 @@ class note
   valeur
 }
 
-'----------------------------------
-
-
-class Ordinateur_Portable
-
-class clavier
-
-Ordinateurs_Portable "0..1" --- "1" etudiant
-
 @enduml
