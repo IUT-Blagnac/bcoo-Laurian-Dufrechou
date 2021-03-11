@@ -1,1 +1,34 @@
 
+@startuml
+
+class concours
+{
+  classement 
+  ville
+  date
+}
+
+class race
+
+
+class chien
+{
+  race
+  nom
+  dateNaissance
+  sexe
+}
+
+class proprietaire
+{
+  adresse
+  nom
+  datePossession
+}
+
+proprietaire "1" -- "10" chien : possede
+
+chien "1" -- "10" concours : participer
+
+
+@enduml
