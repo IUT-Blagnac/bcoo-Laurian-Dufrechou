@@ -1,1 +1,10 @@
 
+@startuml
+
+usecase r as "Recenser les demandes de stage"
+
+actor inconnu
+
+inconnu -> r
+
+@enduml
