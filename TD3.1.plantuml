@@ -7,4 +7,61 @@ actor inconnu
 
 inconnu -> r
 
+
+
+class Stage{
+  lieu
+  dateDebut
+  dateFin
+  nomTuteur
+  theme
+} 
+
+class Company{
+  nom
+  adresse
+  siegeSocial
+}
+
+class Promotion {
+  nom
+}
+
+class Etudiant{
+  numINE
+  nom
+  prenom
+  moyennGenerale()
+}
+
+class GroupeTP{
+  nom
+}
+
+class GroupeTD{
+  nom
+}
+
+Etudiant -- "1" GroupeTP
+
+GroupeTP -- "1" GroupeTD
+
+GroupeTD -- "1" Promotion
+
+class Enseignant{
+  nom
+  prenom
+  specialite
+}
+
+'Stage -- "0..1\ntuteur" Enseignant
+
+Tuteur -|> Enseignant
+
+Stage - "0..1" Tuteur
+
+Stage "*" -- "1" Company
+
+Stage  -- "1" Promotion
+
 @enduml
