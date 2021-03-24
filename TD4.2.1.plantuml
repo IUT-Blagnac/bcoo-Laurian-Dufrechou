@@ -1,1 +1,32 @@
 
+@startuml
+
+usecase r as (Reservation)
+
+
+usecase res as (Reservation des\nsalles de cours)
+
+usecase rem as(Reservation matériel\n pédagogique)
+
+r<|---res
+r<|-rem
+
+
+
+usecase pla as (planning)
+
+
+usecase rh as (Recapitulatif horaire\n par enseignant)
+
+pla <- ToutLeMonde  : consulter
+
+pla <|-- r : creer
+
+rh <|-- pla : calculer
+
+Enseignant -> r  : consulter
+Enseignant -> rh : consulter
+
+EnseignantResponsable --> rh : editer
+
+@enduml
