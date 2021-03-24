@@ -1,7 +1,6 @@
-
 @startuml
 
-usecase r as (Reservation)
+usecase r as (Effectuer des reservation)
 
 
 usecase res as (Reservation des\nsalles de cours)
@@ -13,20 +12,25 @@ r<|-rem
 
 
 
-usecase pla as (planning)
+usecase pla as (consulter le planning)
 
 
-usecase rh as (Recapitulatif horaire\n par enseignant)
+usecase rh as (Consulter le recapitulatif horaire\n par enseignant)
+usecase rhE as (Editer le recapitulatif horaire\n par enseignant)
 
-pla <- ToutLeMonde  : consulter
+pla <- Etudiant
 
 pla <|-- r : creer
 
 rh <|-- pla : calculer
 
-Enseignant -> r  : consulter
-Enseignant -> rh : consulter
+Enseignant -> r 
+Enseignant -> rh 
 
-EnseignantResponsable --> rh : editer
+EnseignantResponsable -> Enseignant
+
+EnseignantResponsable --> rhE 
+
+Enseignant ---> Etudiant
 
 @enduml
