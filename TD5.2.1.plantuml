@@ -30,7 +30,10 @@ loop "Pour chaque article"
   end
 
   C -> C: afficher le prix et libellé article 
+  C -> C: montantTotal += prixArticle * qté
+
 end 
+  B -> C: fin des articles
   C -> B: afficher total des achats 
 
 B-> A: annonce du total à payer
