@@ -1,1 +1,38 @@
 
+
+@startuml
+
+hide footbox
+
+participant A as ":Client"
+
+participant B as ":Caissier"
+
+participant C as ":Caisse"
+
+participant D as ":Tapis"
+
+
+A -> B: arrive
+
+A -> D: deposer les articles 
+
+activate B
+
+loop "Pour chaque article"
+  B -> D: prendre article
+  B -> C: scanner article
+
+  activate C
+
+  opt "qté > 1
+    B -> C: saisir(Qté) 
+  end
+
+  C -> C: afficher le prix et libellé article 
+end 
+  C -> B: afficher total des achats 
+
+B-> A: annonce du total à payer
+
+@enduml
